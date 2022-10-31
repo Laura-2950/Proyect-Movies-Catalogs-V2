@@ -1,0 +1,13 @@
+com\digitalhouse\movieservice\api\config\RabbitTemplateConfig.class
+com\digitalhouse\movieservice\MovieServiceApplication.class
+com\digitalhouse\movieservice\api\config\RedisConfiguration.class
+com\digitalhouse\movieservice\api\controller\MovieController.class
+com\digitalhouse\movieservice\api\exception\GlobalExceptionHandler.class
+com\digitalhouse\movieservice\api\service\MovieService.class
+com\digitalhouse\movieservice\domain\model\MovieInfo.class
+com\digitalhouse\movieservice\domain\repositories\MovieRepository.class
+com\digitalhouse\movieservice\domain\model\DTO\MovieDTO.class
+com\digitalhouse\movieservice\api\service\impl\MovieServiceImpl.class
+com\digitalhouse\movieservice\api\config\RabbitMQSenderConfig.class
+com\digitalhouse\movieservice\util\RedisUtils.class
+com\digitalhouse\movieservice\domain\model\entity\Movie.class

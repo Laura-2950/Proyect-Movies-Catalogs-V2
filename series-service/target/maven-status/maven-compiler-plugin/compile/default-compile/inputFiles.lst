@@ -1,0 +1,14 @@
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\api\controller\SeriesController.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\domain\model\document\Series.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\api\config\RabbitTemplateConfig.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\api\service\SeriesService.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\domain\model\dto\SeasonDTO.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\domain\model\document\Season.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\domain\repository\SeriesRepository.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\api\service\impl\SeriesServiceImpl.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\domain\model\dto\ChapterDTO.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\api\config\RabbitMQSenderConfig.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\SeriesApplication.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\domain\model\document\Chapter.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\api\exception\GlobalExceptionHandler.java
+D:\Certified Tech Developer\ESPECIALIZACIÓN BACK END\BACK END I\FINAL\Fernández_María_Laura\series-service\src\main\java\com\dh\series\domain\model\dto\SeriesDTO.java

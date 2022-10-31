@@ -1,0 +1,1131 @@
+{
+	"info": {
+		"_postman_id": "d7c3664f-bfa7-44c2-9b8f-ea592e702bc5",
+		"name": "Fernandez María Laura - Test - Final I EBI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17974445"
+	},
+	"item": [
+		{
+			"name": "Get Movies by Genre _ Gateway-Movie-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response[0];\r",
+							"\r",
+							"pm.test(\"Get Movie by genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.genre).to.eql(\"Drama\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/movies/:movieGenre",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"movies",
+						":movieGenre"
+					],
+					"variable": [
+						{
+							"key": "movieGenre",
+							"value": "Drama",
+							"description": "Required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Catalogs by Genre _ Catalog-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Get catalog by genre\", ()=>{\r",
+							"    pm.expect(response).to.be.an(\"object\");\r",
+							"    pm.expect(response.genre).to.eql(\"Acción\");\r",
+							"    pm.expect(response.movies).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/catalogs/:genre",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"catalogs",
+						":genre"
+					],
+					"variable": [
+						{
+							"key": "genre",
+							"value": "Acción"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Catalogs by Genre _ Gateway-Catalog-Service-dev",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Get catalog by genre\", ()=>{\r",
+							"    pm.expect(response).to.be.an(\"object\");\r",
+							"    pm.expect(response.genre).to.eql(\"Drama\");\r",
+							"    pm.expect(response.movies).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/catalogs/:genre",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"catalogs",
+						":genre"
+					],
+					"variable": [
+						{
+							"key": "genre",
+							"value": "Drama"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie by Genre _ Movie-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response[0];\r",
+							"\r",
+							"pm.test(\"Get Movie by genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.genre).to.eql(\"Acción\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/movies/:movieGenre",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movies",
+						":movieGenre"
+					],
+					"variable": [
+						{
+							"key": "movieGenre",
+							"value": "Acción"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Series by Genre_Gateway-Series-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const series = response[0];\r",
+							"\r",
+							"pm.test(\"Get series by genre\", ()=>{\r",
+							"    pm.expect(series).to.be.an(\"object\");\r",
+							"    pm.expect(series.genre).to.eql(\"Drama\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/series/:genre",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"series",
+						":genre"
+					],
+					"variable": [
+						{
+							"key": "genre",
+							"value": "Drama"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Series by genre and throwError_Gateway-Catalog-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const series = response[0];\r",
+							"\r",
+							"pm.test(\"All Serieas by genre\", ()=>{\r",
+							"    pm.expect(series).to.be.an(\"object\");\r",
+							"    pm.expect(series.genre).to.eql(\"Drama\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/catalogs/withErrors/series/Drama?throwError=false",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"catalogs",
+						"withErrors",
+						"series",
+						"Drama"
+					],
+					"query": [
+						{
+							"key": "throwError",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Movies by genre and throwError_Gateway-Catalog-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response[0];\r",
+							"\r",
+							"pm.test(\"All Movie by genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.genre).to.eql(\"Drama\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/catalogs/withErrors/movies/Drama?throwError=false",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"catalogs",
+						"withErrors",
+						"movies",
+						"Drama"
+					],
+					"query": [
+						{
+							"key": "throwError",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Movies by genre and throwError_Gateway-Movie-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response[0];\r",
+							"\r",
+							"pm.test(\"All Movie by genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.genre).to.eql(\"Drama\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/movies/withErrors/drama?throwError=false",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"movies",
+						"withErrors",
+						"drama"
+					],
+					"query": [
+						{
+							"key": "throwError",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All series_Api-Gateway-Series-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const series = response[0];\r",
+							"\r",
+							"pm.test(\"All series\", ()=>{\r",
+							"    pm.expect(series).to.be.an(\"object\");\r",
+							"    pm.expect(series.genre).to.eql(\"Drama\");\r",
+							"    pm.expect(series.seasons).to.be.an(\"array\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/series",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Movie_Movie-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response;\r",
+							"\r",
+							"pm.test(\"Add Movie with existent genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.name).to.eql(\"Atenea\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Atenea\",\r\n    \"genre\":\"Acción\",\r\n    \"urlStream\":\"www.netflix.com/Atenea\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Movie with nonexistent genre_Movie-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response;\r",
+							"\r",
+							"pm.test(\"Add Movie with new genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.name).to.eql(\"Mis dos vidas\");\r",
+							"    pm.expect(movie.id).to.exist;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Mis dos vidas\",\r\n    \"genre\":\"Romance\",\r\n    \"urlStream\":\"www.netflix.com/Mis_dos_vidas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Serie- Series-Service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const series = response;\r",
+							"\r",
+							"pm.test(\"Add Series with existent genre\", ()=>{\r",
+							"    pm.expect(series).to.be.an(\"object\");\r",
+							"    pm.expect(series.name).to.eql(\"The Blacklist\");\r",
+							"    pm.expect(series.seasons).to.be.an(\"array\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"The Blacklist\",\r\n    \"genre\": \"Drama\",\r\n    \"seasons\": [\r\n        {\r\n            \"id\": \"001\",\r\n            \"seasonNumber\": 1,\r\n            \"chapters\": [\r\n                {\r\n                    \"id\": \"001\",\r\n                    \"name\": \"Piloto\",\r\n                    \"number\": 1,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/1/Piloto\"\r\n                },\r\n                {\r\n                    \"id\": \"002\",\r\n                    \"name\": \"El Independiente\",\r\n                    \"number\": 2,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/1/El_independiente\"\r\n                },\r\n                {\r\n                    \"id\": \"003\",\r\n                    \"name\": \"Wijing\",\r\n                    \"number\": 3,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/1/Wijing\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"002\",\r\n            \"seasonNumber\": 2,\r\n            \"chapters\": [\r\n                {\r\n                    \"id\": \"001\",\r\n                    \"name\": \"Lord Baltimore\",\r\n                    \"number\": 1,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/2/Lord_Baltimore\"\r\n                },\r\n                {\r\n                    \"id\": \"002\",\r\n                    \"name\": \"Banco Monarch Douglas\",\r\n                    \"number\": 2,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/2/Banco_Monarch_Douglas\"\r\n                },\r\n                {\r\n                    \"id\": \"003\",\r\n                    \"name\": \"Doctor James Covington\",\r\n                    \"number\": 3,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/2/Doctor_James_Covington\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8086/series",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Series with new genre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const series = response;\r",
+							"\r",
+							"pm.test(\"Add Series with new gwnre\", ()=>{\r",
+							"    pm.expect(series).to.be.an(\"object\");\r",
+							"    pm.expect(series.genre).to.eql(\"Terror\");\r",
+							"    pm.expect(series.seasons).to.be.an(\"array\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Glitch\",\r\n    \"genre\": \"Terror\",\r\n    \"seasons\": [\r\n        {\r\n            \"id\": \"001\",\r\n            \"seasonNumber\": 1,\r\n            \"chapters\": [\r\n                {\r\n                    \"id\": \"001\",\r\n                    \"name\": \"Los resucitados\",\r\n                    \"number\": 1,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/1/Los_resucitados\"\r\n                },\r\n                {\r\n                    \"id\": \"002\",\r\n                    \"name\": \"¿Estoy en el infierno?\",\r\n                    \"number\": 2,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/1/¿Estoy_en_el_infierno?\"\r\n                },\r\n                {\r\n                    \"id\": \"003\",\r\n                    \"name\": \"¿Milagro o penitencia?\",\r\n                    \"number\": 3,\r\n                    \"urlStream\": \"www.netflix.com/The_Blacklist/1/¿Milagro_o_penitencia?\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8086/series",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"series"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All series history- Api-Gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const series = response[0];\r",
+							"\r",
+							"pm.test(\"Series history\", ()=>{\r",
+							"    pm.expect(series).to.be.an(\"object\");\r",
+							"    pm.expect(series.genre).to.eql(\"Drama\");\r",
+							"    pm.expect(series.series).to.be.an(\"array\");\r",
+							"    pm.expect(series.date).to.exist;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/catalogs/seriesHistory",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"catalogs",
+						"seriesHistory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All movie history- Api-Gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response[0];\r",
+							"\r",
+							"pm.test(\"Movie history\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.genre).to.eql(\"Drama\");\r",
+							"    pm.expect(movie.movies).to.be.an(\"array\");\r",
+							"    pm.expect(movie.date).to.exist;\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/catalogs/movieHistory",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"catalogs",
+						"movieHistory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info -Gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/actuator/info",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health- Gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/actuator/health",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "circuitbreakerevents - catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/actuator/circuitbreakerevents",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"actuator",
+						"circuitbreakerevents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - series-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - series-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - config-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - config-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - eureka-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8761/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8761",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - eureka-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8761/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8761",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "gatewayURL",
+			"value": "localhost:8080"
+		}
+	]
+}

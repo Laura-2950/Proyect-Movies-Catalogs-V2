@@ -1,0 +1,14 @@
+com\dh\series\api\config\RabbitMQSenderConfig.class
+com\dh\series\api\exception\GlobalExceptionHandler.class
+com\dh\series\api\service\SeriesService.class
+com\dh\series\domain\model\document\Chapter.class
+com\dh\series\domain\model\document\Season.class
+com\dh\series\domain\model\dto\SeriesDTO.class
+com\dh\series\domain\model\dto\ChapterDTO.class
+com\dh\series\domain\repository\SeriesRepository.class
+com\dh\series\SeriesApplication.class
+com\dh\series\domain\model\dto\SeasonDTO.class
+com\dh\series\api\service\impl\SeriesServiceImpl.class
+com\dh\series\domain\model\document\Series.class
+com\dh\series\api\controller\SeriesController.class
+com\dh\series\api\config\RabbitTemplateConfig.class

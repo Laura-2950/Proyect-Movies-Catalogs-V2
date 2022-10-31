@@ -1,0 +1,132 @@
+version: "3.9"  # optional since v1.27.0
+networks:
+  app-network:
+    external: true
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.7.2-management
+    container_name: rabbitmq
+    networks:
+      - app-network
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    networks:
+      - app-network
+    ports:
+      - "9411:9411"
+  eureka-service:
+    image: eureka-service
+    build:
+      context: ./eureka-server
+      dockerfile: ./Dockerfile
+    container_name: eureka-service
+    networks:
+      - app-network
+    ports:
+      - "8761:8761"
+    restart: always
+  config-service:
+    image: config-service
+    build:
+      context: ./config-service
+      dockerfile: ./Dockerfile
+    container_name: config-service
+    networks:
+      - app-network
+    ports:
+      - "8888:8888"
+    restart: always
+  api-gateway:
+    image: api-gateway
+    build:
+      context: ./api-gateway
+      dockerfile: ./Dockerfile
+    container_name: api-gateway
+    networks:
+      - app-network
+    ports:
+      - "8080:8080"
+    restart: always
+  series-service:
+    image: series-service
+    build:
+      context: ./series-service
+      dockerfile: ./Dockerfile
+    container_name: series-service
+    networks:
+      - app-network
+    ports:
+      - "8086:8086"
+    restart: always
+  movie-service:
+    image: movie-service
+    build:
+      context: ./movie-service
+      dockerfile: ./Dockerfile
+    container_name: movie-service
+    networks:
+      - app-network
+    ports:
+      - "8082:8082"
+    restart: always
+  catalog-service:
+    image: catalog-service
+    build:
+      context: ./catalog-service
+      dockerfile: ./Dockerfile
+    container_name: catalog-service
+    networks:
+      - app-network
+    ports:
+      - "8084:8084"
+    restart: always
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    networks:
+      - app-network
+    volumes:
+      - data:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    ports:
+      - "27017:27017"
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+  mysql:
+    image: mysql
+    container_name: mysql
+    networks:
+      - app-network
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=tp_final
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=pass
+  redis:
+    image: redis
+    container_name: redis
+    networks:
+      - app-network
+    ports:
+     - "6379:6379"
+volumes:
+  data: {}
